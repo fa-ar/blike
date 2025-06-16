@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blike</title>
+</head>
+<body>
+    <!---->
+    <style>
+        body {
+            background-color: lightblue;
+            text-align: center;
+            margin: 50px auto;
+        }
+
+        canvas {
+            outline: 2px solid white;
+        }
+    </style>
+    
+    <!---->
+    <canvas></canvas>
+    
+    <script src="js/game.js" ></script>
+    <script src="js/monster.js" ></script>
+    <script src="js/tile.js" ></script>
+    <script src="js/monster.js" ></script>
+    <script src="js/util.js" ></script>
+    <script src="js/spell.js" ></script>
+
+    <!---->
+    <script>
+        // Global Variables
+        let tileSize = 64
+        let numTiles = 9
+        let uiWidth = 4
+
+        // Player Position
+        let x = 0
+        let y = 0
+
+        //
+        let spriteSheet = new Image()
+        spriteSheet.src = 'assets/spriteSheet.png'
+
+        // Keyboard Controls
+        document.querySelector('html').addEventListener('keydown', evt => {
+            if (evt.key === 'w') y--
+            if (evt.key === 's') y++
+            if (evt.key === 'a') x--
+            if (evt.key === 'd') x++
+        })
+
+        // Initialize and Start Game Loop
+        setInterval(draw, 15)
+        setupCanvas()
+    </script>
+</body>
+</html>
